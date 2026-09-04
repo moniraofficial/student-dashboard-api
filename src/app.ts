@@ -22,6 +22,9 @@ import express, { Application, Request, Response } from 'express';
 import cors from 'cors';
 import { errorHandler } from './middlewares/error.middleware';
 import authRoutes from './routes/auth.routes';
+import studentRoutes from './routes/student.routes';
+import courseRoutes from './routes/course.routes';
+import assignmentRoutes from './routes/assignment.routes';
 
 const app: Application = express();
 
@@ -31,6 +34,9 @@ app.use(express.json());
 
 // API Routes
 app.use('/api', authRoutes);
+app.use('/api', studentRoutes);
+app.use('/api', courseRoutes);
+app.use('/api', assignmentRoutes);
 
 // Test Route
 app.get('/', (req: Request, res: Response) => {
